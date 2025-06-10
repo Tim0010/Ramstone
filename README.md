@@ -1,73 +1,93 @@
-# Welcome to your Lovable project
+# Ramstone Lusaka Solutions
 
-## Project info
+Professional car repair services and general supply solutions in Lusaka, Zambia.
 
-**URL**: https://lovable.dev/projects/d8fecfc1-c45e-428a-b442-95cd61af3d22
+## About
 
-## How can I edit this code?
+Ramstone Creative Solutions is your trusted partner for:
 
-There are several ways of editing your application.
+- **Auto Repair Services**: Panel beating, spray painting, periodic services, AC repair, batteries, tires, and more
+- **General Supply**: Industrial supplies, chemicals, office stationery, agricultural supplies, and construction tools
 
-**Use Lovable**
+Located at 23A Great East Road, Avondale, Lusaka.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d8fecfc1-c45e-428a-b442-95cd61af3d22) and start prompting.
+## Technologies Used
 
-Changes made via Lovable will be committed automatically to this repo.
+This website is built with modern web technologies:
 
-**Use your preferred IDE**
+- **React 18** - Modern UI library
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - High-quality UI components
+- **React Router** - Client-side routing
+- **Lucide React** - Beautiful icons
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Development
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+- Node.js 18 or higher
+- npm or yarn
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Getting Started
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. **Clone the repository**
 
-# Step 3: Install the necessary dependencies.
-npm i
+   ```bash
+   git clone https://github.com/Tim0010/ramstone-lusaka-solutions.git
+   cd ramstone-lusaka-solutions
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+2. **Install dependencies**
 
-**Edit a file directly in GitHub**
+   ```bash
+   npm install
+   ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. **Start development server**
 
-**Use GitHub Codespaces**
+   ```bash
+   npm run dev
+   ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-## What technologies are used for this project?
+### Available Scripts
 
-This project is built with:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+This project is configured for deployment on:
 
-Simply open [Lovable](https://lovable.dev/projects/d8fecfc1-c45e-428a-b442-95cd61af3d22) and click on Share -> Publish.
+- **Netlify** (recommended) - Automatic deployments from GitHub
+- **Vercel** - Zero-config deployments
+- **GitHub Pages** - Free static hosting
 
-## Can I connect a custom domain to my Lovable project?
+### Netlify Deployment
 
-Yes, you can!
+The project includes `netlify.toml` configuration for optimal deployment:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Automatic builds on push to master
+- SPA routing support
+- Optimized caching headers
+- Security headers
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Contact
+
+**Ramstone Creative Solutions**
+
+- 📍 23A Great East Road, Avondale, Lusaka
+- 📞 +260 974 622 334
+- 🌐 [Website](https://ramstone-lusaka-solutions.netlify.app)
+
+## License
+
+© 2024 Ramstone Creative Solutions. All rights reserved.

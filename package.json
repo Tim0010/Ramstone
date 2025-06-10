@@ -1,7 +1,8 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "ramstone-lusaka-solutions",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Professional car repair services and general supply solutions in Lusaka, Zambia",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -85,5 +86,21 @@
     "@rollup/rollup-darwin-x64": "^4.21.0",
     "@rollup/rollup-darwin-arm64": "^4.21.0",
     "@rollup/rollup-win32-x64-msvc": "^4.21.0"
-  }
+  },
+  "keywords": [
+    "car repair",
+    "auto repair",
+    "general supply",
+    "Lusaka",
+    "Zambia",
+    "panel beating",
+    "spray painting",
+    "construction tools"
+  ],
+  "author": "Ramstone Creative Solutions",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tim0010/ramstone-lusaka-solutions.git"
+  },
+  "homepage": "https://ramstone-lusaka-solutions.netlify.app"
 }
