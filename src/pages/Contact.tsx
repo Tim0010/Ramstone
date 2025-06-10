@@ -1,9 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import SEO from "@/components/SEO";
+import { BUSINESS_INFO, WHATSAPP_MESSAGES } from "@/lib/constants";
+import { openWhatsApp, openPhoneDialer, openEmailClient } from "@/lib/utils/whatsapp";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -33,32 +36,42 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6 text-primary" />,
       title: "Phone",
-      details: "+260 974 622 334",
-      action: () => window.open("tel:+260974622334")
+      details: BUSINESS_INFO.phoneFormatted,
+      action: () => openPhoneDialer(),
+      ariaLabel: `Call us at ${BUSINESS_INFO.phoneFormatted}`
     },
     {
       icon: <Mail className="w-6 h-6 text-primary" />,
       title: "Email",
-      details: "info@ramstone.co.zm",
-      action: () => window.open("mailto:info@ramstone.co.zm")
+      details: BUSINESS_INFO.email,
+      action: () => openEmailClient(),
+      ariaLabel: `Email us at ${BUSINESS_INFO.email}`
     },
     {
       icon: <MapPin className="w-6 h-6 text-primary" />,
       title: "Address",
-      details: "23A Great East Road, Avondale, Lusaka",
-      action: () => window.open("https://maps.google.com/?q=23A+Great+East+Road,+Avondale,+Lusaka")
+      details: BUSINESS_INFO.address,
+      action: () => window.open(`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_INFO.address)}`, "_blank", "noopener,noreferrer"),
+      ariaLabel: `View our location: ${BUSINESS_INFO.address}`
     },
     {
       icon: <Clock className="w-6 h-6 text-primary" />,
       title: "Business Hours",
-      details: "Mon-Fri: 8AM-5PM, Sat: 8AM-2PM",
-      action: null
+      details: BUSINESS_INFO.businessHours,
+      action: null,
+      ariaLabel: `Our business hours: ${BUSINESS_INFO.businessHours}`
     }
   ];
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
+    <>
+      <SEO
+        title="Contact Us - Ramstone Creative Solutions | Lusaka, Zambia"
+        description="Get in touch with Ramstone Creative Solutions for car repair and general supply services in Lusaka. Call +260 974 622 334 or visit us at Great East Road, Avondale."
+        keywords="contact Ramstone Lusaka, car repair contact Zambia, auto repair phone number, Great East Road Avondale"
+      />
+      <div className="min-h-screen">
+        {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-gray-700 to-gray-900 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -228,27 +241,26 @@ const Contact = () => {
             <Button
               size="lg"
               className="bg-white text-primary border-white hover:bg-gray-100"
-              onClick={() => window.open("tel:+260974622334")}
+              onClick={() => openPhoneDialer()}
+              aria-label={`Call us at ${BUSINESS_INFO.phoneFormatted}`}
             >
-              <Phone className="w-5 h-5 mr-2" />
-              Call Now: +260 974 622 334
+              <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
+              Call Now: {BUSINESS_INFO.phoneFormatted}
             </Button>
             <Button
               size="lg"
               className="bg-green-600 hover:bg-green-700 text-white"
-              onClick={() => {
-                const phone = "260974622334";
-                const message = "Hello! I need more information about your services.";
-                window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
-              }}
+              onClick={() => openWhatsApp(WHATSAPP_MESSAGES.contact)}
+              aria-label="Contact us on WhatsApp"
             >
-              <MessageCircle className="w-5 h-5 mr-2" />
+              <MessageCircle className="w-5 h-5 mr-2" aria-hidden="true" />
               WhatsApp Us
             </Button>
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 
