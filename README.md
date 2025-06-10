@@ -35,8 +35,8 @@ This website is built with modern web technologies:
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/Tim0010/ramstone-lusaka-solutions.git
-   cd ramstone-lusaka-solutions
+   git clone https://github.com/Tim0010/Ramstone.git
+   cd Ramstone
    ```
 
 2. **Install dependencies**
@@ -86,7 +86,7 @@ The project includes `netlify.toml` configuration for optimal deployment:
 
 - 📍 23A Great East Road, Avondale, Lusaka
 - 📞 +260 974 622 334
-- 🌐 [Website](https://ramstone-lusaka-solutions.netlify.app)
+- 🌐 [Website](https://ramstone.netlify.app)
 
 ## License
 

@@ -8,7 +8,7 @@ export const BUSINESS_INFO = {
   email: "grayheavens891@gmail.com",
   address: "23A Great East Road, Avondale, Lusaka",
   businessHours: "Mon-Fri: 8AM-5PM, Sat: 8AM-2PM",
-  website: "https://ramstone-lusaka-solutions.netlify.app",
+  website: "https://ramstone.netlify.app",
 } as const;
 
 // WhatsApp Messages
