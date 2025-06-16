@@ -9,6 +9,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./contexts/AuthContext";
 
 // Lazy load pages for better performance
 const Index = React.lazy(() => import("./pages/Index"));
@@ -16,6 +18,8 @@ const About = React.lazy(() => import("./pages/About"));
 const AutoRepair = React.lazy(() => import("./pages/AutoRepair"));
 const GeneralSupply = React.lazy(() => import("./pages/GeneralSupply"));
 const Contact = React.lazy(() => import("./pages/Contact"));
+const AdminDashboard = React.lazy(() => import("./pages/AdminDashboard"));
+const QuotationGenerator = React.lazy(() => import("./pages/QuotationGenerator"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 // Loading component
@@ -40,29 +44,55 @@ const queryClient = new QueryClient({
 const App: React.FC = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <div className="min-h-screen flex flex-col font-montserrat">
-            <Header />
-            <main className="flex-grow">
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/auto-repair" element={<AutoRepair />} />
-                  <Route path="/general-supply" element={<GeneralSupply />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </main>
-            <Footer />
-            <WhatsAppButton />
-          </div>
-        </BrowserRouter>
-      </TooltipProvider>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <div className="min-h-screen flex flex-col font-montserrat">
+              <Header />
+              <main className="flex-grow">
+                <Suspense fallback={<PageLoader />}>
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/auto-repair" element={<AutoRepair />} />
+                    <Route path="/general-supply" element={<GeneralSupply />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route
+                      path="/admin"
+                      element={
+                        <ProtectedRoute>
+                          <AdminDashboard />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/admin/quotation-generator"
+                      element={
+                        <ProtectedRoute>
+                          <QuotationGenerator />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/admin/invoice-generator"
+                      element={
+                        <ProtectedRoute>
+                          <QuotationGenerator />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
+              </main>
+              <Footer />
+              <WhatsAppButton />
+            </div>
+          </BrowserRouter>
+        </TooltipProvider>
+      </AuthProvider>
     </QueryClientProvider>
   </ErrorBoundary>
 );

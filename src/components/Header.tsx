@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Shield, LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
+import LoginDialog from "./LoginDialog";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const location = useLocation();
+  const { isAuthenticated, user, logout } = useAuth();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -34,21 +38,61 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`px-3 py-2 text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.href)
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-dark hover:text-primary"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center space-x-8">
+            <nav className="flex space-x-8">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`px-3 py-2 text-sm font-medium transition-colors hover:text-primary ${
+                    isActive(item.href)
+                      ? "text-primary border-b-2 border-primary"
+                      : "text-dark hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Admin Section */}
+            <div className="flex items-center space-x-2">
+              {isAuthenticated ? (
+                <div className="flex items-center space-x-2">
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="flex items-center gap-2"
+                  >
+                    <Link to="/admin">
+                      <Shield className="w-4 h-4" />
+                      Dashboard
+                    </Link>
+                  </Button>
+                  <Button
+                    onClick={logout}
+                    variant="ghost"
+                    size="sm"
+                    className="flex items-center gap-2 text-gray-600 hover:text-red-600"
+                    title="Logout"
+                  >
+                    <LogOut className="w-4 h-4" />
+                  </Button>
+                </div>
+              ) : (
+                <Button
+                  onClick={() => setIsLoginOpen(true)}
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2"
+                >
+                  <User className="w-4 h-4" />
+                  Admin
+                </Button>
+              )}
+            </div>
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -81,10 +125,50 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+
+              {/* Mobile Admin Section */}
+              <div className="border-t pt-3 mt-3">
+                {isAuthenticated ? (
+                  <div className="space-y-2">
+                    <Link
+                      to="/admin"
+                      className="flex items-center gap-2 px-3 py-2 text-base font-medium text-dark hover:text-primary hover:bg-gray-50 rounded-md"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <Shield className="w-4 h-4" />
+                      Admin Dashboard
+                    </Link>
+                    <button
+                      onClick={() => {
+                        logout();
+                        setIsMenuOpen(false);
+                      }}
+                      className="flex items-center gap-2 px-3 py-2 text-base font-medium text-red-600 hover:bg-red-50 rounded-md w-full text-left"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Logout
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setIsLoginOpen(true);
+                      setIsMenuOpen(false);
+                    }}
+                    className="flex items-center gap-2 px-3 py-2 text-base font-medium text-dark hover:text-primary hover:bg-gray-50 rounded-md w-full text-left"
+                  >
+                    <User className="w-4 h-4" />
+                    Admin Login
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         )}
       </div>
+
+      {/* Login Dialog */}
+      <LoginDialog open={isLoginOpen} onOpenChange={setIsLoginOpen} />
     </header>
   );
 };
