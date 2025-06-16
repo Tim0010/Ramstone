@@ -150,9 +150,8 @@ const LoginDialog: React.FC<LoginDialogProps> = ({ open, onOpenChange }) => {
         </form>
         
         <div className="text-xs text-gray-500 text-center mt-4">
-          <p>Demo credentials:</p>
-          <p>Username: <code className="bg-gray-100 px-1 rounded">admin</code></p>
-          <p>Password: <code className="bg-gray-100 px-1 rounded">ramstone2024!</code></p>
+          <p>Notice:</p>
+          <p>If you forget password <code className="bg-gray-100 px-1 rounded">Contact Tech support</code></p>
         </div>
       </DialogContent>
     </Dialog>
