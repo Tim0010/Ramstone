@@ -1,14 +1,26 @@
 // Business Information Constants
 export const BUSINESS_INFO = {
-  name: "Ramstone Creative Solutions",
+  name: "RAMSTONE",
+  fullName: "RAMSTONE CREATIVE SOLUTIONS",
   tagline: "Great Professionalism. Superb Quality.",
-  phone: "+260974622334",
-  phoneFormatted: "+260 974 622 334",
-  phoneClean: "260974622334",
+  phone1: "+260974622334",
+  phone2: "+260964729007",
+  phoneFormatted1: "+260 974 622 334",
+  phoneFormatted2: "+260 964 729 007",
+  phoneClean1: "260974622334",
+  phoneClean2: "260964729007",
   email: "grayheavens891@gmail.com",
   address: "23A Great East Road, Avondale, Lusaka",
+  tpin: "2001215113",
   businessHours: "Mon-Fri: 8AM-5PM, Sat: 8AM-2PM",
   website: "https://ramstone.netlify.app",
+  services: [
+    "Panel Beating, Spray Painting,",
+    "Denting & Painting, Welding,",
+    "Auto Electrical & Car Polishing,",
+    "23A Great East Road, Avondale, Lusaka",
+    "Cell: +260 974 622 334 / +260 964 729 007"
+  ]
 } as const;
 
 // WhatsApp Messages
