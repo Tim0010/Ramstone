@@ -27,8 +27,8 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-xl">R</span>
+              <div className="w-10 h-10 bg-red-600 rounded-md flex items-center justify-center mr-3">
+                <span className="text-white font-bold text-lg">R</span>
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-xl font-bold text-dark">Ramstone</h1>

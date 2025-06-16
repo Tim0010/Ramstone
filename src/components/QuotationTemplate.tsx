@@ -21,12 +21,14 @@ const QuotationTemplate: React.FC<QuotationTemplateProps> = ({ data, className =
       {/* Header */}
       <div className="flex justify-between items-start mb-6">
         <div className="flex items-center">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-orange-500 rounded-lg flex items-center justify-center mr-4">
-            <span className="text-white font-bold text-2xl">R</span>
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">{BUSINESS_INFO.name}</h1>
-            <p className="text-sm text-gray-600 italic">{BUSINESS_INFO.tagline}</p>
+          <div className="flex items-center mr-4">
+            <div className="w-12 h-12 bg-red-600 rounded-md flex items-center justify-center mr-3">
+              <span className="text-white font-bold text-xl">R</span>
+            </div>
+            <div>
+              <h1 className="text-xl font-bold text-gray-900 leading-tight">Ramstone</h1>
+              <p className="text-sm text-gray-600 leading-tight">Creative Solutions</p>
+            </div>
           </div>
         </div>
 
